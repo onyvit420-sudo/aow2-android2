@@ -1,0 +1,2 @@
+rootProject.name='AOW2Android'
+include ':app'
