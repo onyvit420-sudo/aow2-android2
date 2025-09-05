@@ -13,14 +13,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      # Android SDK
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+
       - name: Install SDK packages
         run: |
           sdkmanager --install "platforms;android-34" "build-tools;34.0.0" "platform-tools" || true
           yes | sdkmanager --licenses
 
-      # Используем Gradle 8.7 (совместим с AGP 8.6)
+      # Gradle 8.7 (совместим с AGP 8.6) — ЭТОТ шаг обязателен
       - name: Set up Gradle 8.7
         uses: gradle/actions/setup-gradle@v3
         with:
